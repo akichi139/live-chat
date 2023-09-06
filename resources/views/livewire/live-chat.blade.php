@@ -1,9 +1,29 @@
-<div>
-    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+<div class="flex justify-center">
+    <div class="bg-gray-200 w-2/10 h-50 overflow-y-auto">
+        <!-- Sidebar header or logo goes here -->
+        <div class="p-4">
+            <!-- Add your header or logo here -->
+            <h1 class="text-2xl font-bold">Chat App</h1>
+        </div>
+
+        <!-- User list -->
+        <div class="p-4">
+            <h2 class="text-lg font-semibold">Users</h2>
+            <ul>
+                @foreach ($users as $user)
+                <li>
+                    <a href="#" class="block hover:bg-gray-300 px-4 py-1 rounded-full" wire:click="navigateTo({{ $user->id }})">{{ $user->name }}</a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-gray-100 w-8/10 h-50 flex flex-col items-center justify-center">
         <div class="bg-white w-96 rounded-lg shadow-lg overflow-hidden">
             <!-- Chat Header -->
             <div class="bg-blue-500 text-white p-4">
-                <h2 class="text-xl font-semibold">Chat</h2>
+                <h2 class="text-xl font-semibold">{{ $user_id->name }}</h2>
             </div>
 
             <!-- Chat Messages -->

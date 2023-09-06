@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth'])->group(function() { 
+    Route::get('/chats', [App\Http\Controllers\ChatController::class,'showChatsView'])->name('chats');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

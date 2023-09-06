@@ -61,7 +61,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function comments(): HasMany
+    public function chats(): HasMany
     {
         return $this->hasMany(Chat::class);
     }
